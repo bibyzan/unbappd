@@ -9,7 +9,8 @@ Unbappd is an application which allows users to see or leave reviews on alcoholi
 
 ![](https://cdn.discordapp.com/attachments/756264094079779041/756277078047064191/image.png)
 
-![](https://cdn.discordapp.net/attachments/756264094079779041/757350561317257363/image.png)
+
+![](https://cdn.discordapp.com/attachments/756264094079779041/757350561317257363/image.png)
 
 ## Functional Requirements
 As a User I want to view nearby bars So that I can view ratings on specific brands of liquor. I want to view drink menus of nearby bars so that I can rate them
