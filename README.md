@@ -41,6 +41,6 @@ productName: string
 	Business Logic - Reco Gunnels 
 	Product Owner - Connor Cook 
 ## Github link: https://github.com/bibyzan/unbappd/blob/master/README.md
-## Milestones: https://github.com/bibyzan/unbappd/projects/2
+## Milestones 1: https://github.com/bibyzan/unbappd/projects/2
 ## Discord Server Used for Standup -  https://discord.gg/NXqgFR
 
