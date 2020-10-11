@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *performs the methods for the service
+ */
+
 @Component
 public class ReviewServiceStub implements IReviewService {
 

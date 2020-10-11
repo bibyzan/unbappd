@@ -4,6 +4,10 @@ import com.unbappd.enterprise.dto.Review;
 
 import java.util.List;
 
+
+/**
+ * Declare the methods for the service
+ */
 public interface IReviewService {
 
     /**
