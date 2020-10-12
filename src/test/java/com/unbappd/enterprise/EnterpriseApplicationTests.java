@@ -13,6 +13,7 @@ class EnterpriseApplicationTests {
 
     @Autowired
     IReviewService reviewService;
+    private Review review;
 
     @Test
     void contextLoads() {
@@ -30,9 +31,32 @@ class EnterpriseApplicationTests {
         reviewEntry.setReviewId(0);
         reviewEntry.setPlacesId(0);
         reviewEntry.setReviewScore(5);
+        reviewEntry.setLongitude(51.1232);
+        reviewEntry.setLongitude(51.1232);
         reviewEntry.setReviewText(reviewTxt);
+        reviewEntry.setReviewerID(101);
 
         assertEquals(reviewTxt, reviewEntry.getReviewText());
         assertEquals(reviewScr, reviewEntry.getReviewScore());
+    }
+
+    private void givenReviewDataAreAvailable() {
+    }
+    private void whenUserSearchesWithPlaceID9(){
+        review = reviewService.fetchById(9);
+
+    }
+    private void thenReturnReviewsWithPlaceID9(){
+        String returnedReviewText = review.getReviewText();
+        int checkPlacesID = review.getPlacesId();
+        assertEquals("A fabulous beer", returnedReviewText);
+        assertEquals(9,checkPlacesID);
+    }
+
+    @Test
+    void saveNewReview_validateNewReviewByReturningReviewText() {
+        givenReviewDataAreAvailable();
+        whenUserSearchesWithPlaceID9();
+        thenReturnReviewsWithPlaceID9();
     }
 }
