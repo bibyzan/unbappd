@@ -26,7 +26,11 @@ public class ReviewServiceStub implements IReviewService {
     }
 
     @Override
-    public List<Review> fetchById(Integer placeID) {
-        return reviewsDAO;
+    public Review fetchById(int placeID) {
+        Review review = new Review();
+        review.setReviewText("A fabulous beer");
+        review.setPlacesId(9);
+        return review;
     }
+
 }

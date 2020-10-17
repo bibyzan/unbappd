@@ -7,4 +7,7 @@ class Review {
     private int placesId;
     private String reviewText;
     private int reviewScore;
+    private double longitude;
+    private double latitude;
+    private int reviewerID;
 }
