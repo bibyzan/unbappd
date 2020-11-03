@@ -17,7 +17,16 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
-    <h2 class="row">Unbappd</h2>
+    <form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
+        <label>placeId</label><input type="text" name="placeId" th:field="*{placeId}"/>
+        <label>Product Name</label><input type="text" name="productName" th:field="*{productName}"/>
+        <label>Description</label><input type="text" name="text" th:field="*{text}"/>
+        <label>Score</label><input type="text" name="score" th:field="*{score}"/>
+        <label>Longitude</label><input type="text" name="longitude" th:field="*{lng}"/>
+        <label>Latitude</label><input type="text" name="latitude" th:field="*{lat}"/>
+        <label>Reviewer Name</label><input type="text" name="reviewerName" th:field="*{reviewerName}"/>
+        <button name="submit" type="submit" value="0">Submit</button>
+    </form>
     <div class="row">
 <!--    <div th:replace="fragments/topnav :: search-navbar"></div>-->
     <div class="row"  style="background-color: gray">
