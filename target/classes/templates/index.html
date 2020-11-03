@@ -15,12 +15,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
             async defer></script>
+
+    <script src="https://maps.googleapis.com/js?v=3exp&sensor=false&libraries=places">
+
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <h2 style="margin-right: 10px">Unbappd</h2>
     <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" id="pac-input" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" id="main-input" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>
@@ -45,6 +49,11 @@
                             </button>
                         </div>
                         <div class="modal-body" style="height: 500px; overflow-y: scroll">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" id="pac-input" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                            <br/>
                             <div id="googleMap" style="background-color: darkgrey; width: 100%; height: 80%;">Google Maps
                                 <script>
                                     function myMap() {
