@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  *performs the methods for the service
  */
@@ -27,6 +29,11 @@ public class ReviewService implements IReviewService {
         review.setText("A fabulous beer");
         review.setPlaceId(9);
         return review;
+    }
+
+    @Override
+    public List<Review> fetchAll() {
+        return reviewDAO.fetchAll();
     }
 
 }

@@ -2,6 +2,8 @@ package com.unbappd.enterprise.dao;
 
 import com.unbappd.enterprise.dto.Review;
 
+import java.util.List;
+
 public interface IReviewDAO {
     /**
      * Save a new Review
@@ -16,4 +18,5 @@ public interface IReviewDAO {
 
     Review fetchById(int placeID);
 
+    List<Review> fetchAll();
 }
