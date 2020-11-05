@@ -9,5 +9,5 @@ class Review {
     private int reviewScore;
     private double longitude;
     private double latitude;
-    private int reviewerID;
+    private double reviewerID;
 }
