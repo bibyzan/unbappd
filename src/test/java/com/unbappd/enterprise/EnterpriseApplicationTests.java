@@ -48,13 +48,13 @@ class EnterpriseApplicationTests {
     }
     private void thenReturnReviewsWithPlaceID9(){
         String returnedReviewText = review.getReviewText();
-        int checkPlacesID = review.getPlacesId();
+        String checkPlacesID = review.getPlacesId();
         assertEquals("A fabulous beer", returnedReviewText);
         assertEquals(9,checkPlacesID);
     }
 
     @Test
-    void saveNewReview_validateNewReviewByReturningReviewText() {
+    void saveNewReview_validateNewReviewByNewReviewText() {
         givenReviewDataAreAvailable();
         whenUserSearchesWithPlaceID9();
         thenReturnReviewsWithPlaceID9();

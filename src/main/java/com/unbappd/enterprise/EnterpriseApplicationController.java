@@ -10,7 +10,7 @@ public class EnterpriseApplicationController {
      * @return
      */
     @RequestMapping("/")
-    public String index() {
+    public int index() {
 
         return "index";
     }
