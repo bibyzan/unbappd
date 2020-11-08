@@ -1,13 +1,22 @@
 package com.unbappd.enterprise.dto;
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public @Data
 class Review {
-    private int reviewId;
-    private int placesId;
-    private String reviewText;
-    private int reviewScore;
-    private double longitude;
-    private double latitude;
-    private int reviewerID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private int placeId;
+    private String productName;
+    private String text;
+    private int score;
+    private double lng;
+    private double lat;
+    private String reviewerName;
 }

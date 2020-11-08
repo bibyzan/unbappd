@@ -28,16 +28,16 @@ class EnterpriseApplicationTests {
         Integer reviewScr = 5;
 
         Review reviewEntry = new Review();
-        reviewEntry.setReviewId(0);
-        reviewEntry.setPlacesId(0);
-        reviewEntry.setReviewScore(5);
-        reviewEntry.setLongitude(51.1232);
-        reviewEntry.setLongitude(51.1232);
-        reviewEntry.setReviewText(reviewTxt);
-        reviewEntry.setReviewerID(101);
+        reviewEntry.setId(0);
+        reviewEntry.setPlaceId(0);
+        reviewEntry.setScore(5);
+        reviewEntry.setLat(51.1232);
+        reviewEntry.setLng(51.1232);
+        reviewEntry.setText(reviewTxt);
+        reviewEntry.setReviewerName("101");
 
-        assertEquals(reviewTxt, reviewEntry.getReviewText());
-        assertEquals(reviewScr, reviewEntry.getReviewScore());
+        assertEquals(reviewTxt, reviewEntry.getText());
+        assertEquals(reviewScr, reviewEntry.getScore());
     }
 
     private void givenReviewDataAreAvailable() {
@@ -47,8 +47,8 @@ class EnterpriseApplicationTests {
 
     }
     private void thenReturnReviewsWithPlaceID9(){
-        String returnedReviewText = review.getReviewText();
-        int checkPlacesID = review.getPlacesId();
+        String returnedReviewText = review.getText();
+        int checkPlacesID = review.getPlaceId();
         assertEquals("A fabulous beer", returnedReviewText);
         assertEquals(9,checkPlacesID);
     }
