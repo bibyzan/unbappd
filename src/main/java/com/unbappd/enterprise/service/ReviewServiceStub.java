@@ -1,6 +1,8 @@
 package com.unbappd.enterprise.service;
 
+import com.unbappd.enterprise.DAO.ReviewDAO;
 import com.unbappd.enterprise.dto.Review;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import java.util.List;
 @Component
 public class ReviewServiceStub implements IReviewService {
 
+    @Autowired
+    private ReviewDAO reviewDAO;
 
     public List<Review> reviewsDAO = new ArrayList<>();
 
@@ -21,8 +25,8 @@ public class ReviewServiceStub implements IReviewService {
     }
 
     @Override
-    public void save(Review review) {
-        reviewsDAO.add(review);
+    public Review save(Review review) throws Exception {
+        return reviewDAO.save(review);
     }
 
     @Override
