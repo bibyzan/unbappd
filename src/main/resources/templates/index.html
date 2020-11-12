@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,7 +35,7 @@
         <div class="row" style="background-color: gray; flex: 1; left: 0">
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Launch demo modal
             </button>
 
@@ -55,7 +56,9 @@
                             </form>
                             <br/>
                             <div id="googleMap" style="background-color: darkgrey; width: 100%; height: 80%;">Google Maps
+
                                 <script>
+
                                     function myMap() {
                                         let mapProp = {
                                             center: new google.maps.LatLng(39.103119, -84.512016),
@@ -127,21 +130,23 @@
                                     });
                                 </script>
                             </div>
-                            <form>
+
+
+                            <form >
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Enter Product Name</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    <small id="emailHelp" class="form-text text-muted">However the beverage is listed on the menu</small>
+                                    <label for="productName">Enter Product Name</label>
+                                    <input type="text" class="form-control" id="productName" aria-describedby="poductHelp" >
+                                    <small id="productHelp" class="form-text text-muted">However the beverage is listed on the menu</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Enter Your Opinion</label>
-                                    <input type="text" class="form-control" id="exampleInputDesc" aria-describedby="emailHelp">
+                                    <label for="opinionText">Enter Your Opinion</label>
+                                    <input type="text" class="form-control" id="opinionText" aria-describedby="desc" >
                                     <small id="desc" class="form-text text-muted">Your unfiltered response to the drink</small>
                                 </div>
                                 <label>Rate your experience from 1 to 5 stars</label>
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" >
                                         <label class="form-check-label" for="inlineRadio1">1</label>
                                     </div>
                                     <div class="form-check form-check-inline">
