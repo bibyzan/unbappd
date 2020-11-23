@@ -28,6 +28,17 @@ public class EnterpriseApplicationController {
         return "index";
     }
 
+    /**
+     * Handle the root of / endpoint and return index.html
+     * @return
+     */
+    @RequestMapping("/createReview")
+    public String createReview(Model model) {
+        Review review = new Review();
+        model.addAttribute(review);
+        return "createReview";
+    }
+
     @RequestMapping("/saveReview")
     public String saveReview(Review review) {
         try {

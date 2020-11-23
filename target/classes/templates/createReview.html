@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
+            async defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
+            async defer></script>
+
+</head>
+<body>
+<div th:replace="fragments/topnav :: navbar">
+
+</div>
+<form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
+    <div class="form-group">
+        <label for="placeId">placeId</label><input class="form-control" type="text" id="placeId" name="placeId"
+                                                   th:field="*{placeId}"/>
+    </div>
+    <div class="form-group">
+        <label>Product Name</label><input class="form-control" type="text" name="productName" th:field="*{productName}"/>
+    </div>
+    <div class="form-group">
+        <label>Description</label><input class="form-control" type="text" name="text" th:field="*{text}"/>
+
+    </div>
+    <div class="form-group">
+        <label>Score</label><input class="form-control" type="text" name="score" th:field="*{score}"/>
+
+    </div>
+    <div class="form-group">
+        <label>Longitude</label><input class="form-control" type="text" name="longitude" th:field="*{lng}"/>
+
+    </div>
+    <div class="form-group">
+        <label>Latitude</label><input class="form-control" type="text" name="latitude" th:field="*{lat}"/>
+
+    </div>
+    <div class="form-group">
+        <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName" th:field="*{reviewerName}"/>
+
+    </div>
+    <div class="form-group">
+        <button class="form-control" name="submit" type="submit" value="0">Submit</button>
+
+    </div>
+
+</form>
+</body>
+</html>

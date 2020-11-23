@@ -1,8 +1,7 @@
-<div th:fragment="search-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" id = "pac-input" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-</div>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <h2 style="margin-right: 10px">Unbappd</h2>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" id="main-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
