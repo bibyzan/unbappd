@@ -1,15 +1,10 @@
-package com.unbappd.enterprise.service;
+package com.unbappd.enterprise.dao;
 
 import com.unbappd.enterprise.dto.Review;
 
 import java.util.List;
 
-
-/**
- * Declare the methods for the service
- */
-public interface IReviewService {
-
+public interface IReviewDAO {
     /**
      * Save a new Review
      * @param review the entry to save.
