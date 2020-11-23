@@ -18,6 +18,9 @@
 
 </head>
 <body>
+<div th:replace="fragments/topnav :: top-navbar">
+
+</div>
 <form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
     <div class="form-group">
         <label for="placeId">placeId</label><input class="form-control" type="text" id="placeId" name="placeId"
