@@ -12,7 +12,8 @@ class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private int placeId;
+    private String placeId;
+    private String placeName;
     private String productName;
     private String text;
     private int score;

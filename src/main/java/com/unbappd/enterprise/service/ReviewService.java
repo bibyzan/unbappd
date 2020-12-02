@@ -27,7 +27,7 @@ public class ReviewService implements IReviewService {
     public Review fetchById(int placeID) {
         Review review = new Review();
         review.setText("A fabulous beer");
-        review.setPlaceId(9);
+        review.setPlaceId("9");
         return review;
     }
 

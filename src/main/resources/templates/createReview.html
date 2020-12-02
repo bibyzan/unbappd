@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -15,19 +14,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
             async defer></script>
-
-</head>
+    </head>
 <body>
 <div th:replace="fragments/topnav :: top-navbar">
 
 </div>
 <form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
+    <input id="place-input" type="text" placeholder="Search for places">
     <div class="form-group">
-        <label for="placeId">placeId</label><input class="form-control" type="text" id="placeId" name="placeId"
+        <label for="placeId">placeId</label><input id="place-id" class="form-control" type="text" name="placeId"
                                                    th:field="*{placeId}"/>
     </div>
     <div class="form-group">
-        <label>Product Name</label><input class="form-control" type="text" name="productName" th:field="*{productName}"/>
+        <label>Product Name</label><input class="form-control" type="text" name="productName"
+                                          th:field="*{productName}"/>
     </div>
     <div class="form-group">
         <label>Description</label><input class="form-control" type="text" name="text" th:field="*{text}"/>
@@ -38,15 +38,21 @@
 
     </div>
     <div class="form-group">
-        <label>Longitude</label><input class="form-control" type="text" name="longitude" th:field="*{lng}"/>
+        <label>Longitude</label><input id="place-lng" class="form-control" type="text" name="longitude" th:field="*{lng}"/>
 
     </div>
     <div class="form-group">
-        <label>Latitude</label><input class="form-control" type="text" name="latitude" th:field="*{lat}"/>
+        <label>Latitude</label><input id="place-lat" class="form-control" type="text" name="latitude" th:field="*{lat}"/>
 
     </div>
     <div class="form-group">
-        <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName" th:field="*{reviewerName}"/>
+        <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName"
+                                           th:field="*{reviewerName}"/>
+
+    </div>
+    <div class="form-group">
+        <label>Establishment Name</label><input id="place-name" class="form-control" type="text" name="placeName"
+                                           th:field="*{placeName}"/>
 
     </div>
     <div class="form-group">
@@ -55,5 +61,30 @@
     </div>
 
 </form>
+<script>
+    function initSearch() {
+        // Create the search box and link it to the UI element.
+        const input = document.getElementById("place-input");
+        console.log('INPUT', input);
+        const autocomplete = new google.maps.places.Autocomplete(input,
+            {
+                componentRestrictions: {country: 'US'},
+                types: ['establishment']  // 'establishment' / 'address' / 'geocode'
+            });
+        google.maps.event.addListener(autocomplete, 'place_changed', () => {
+            const {name, geometry: {location: {lat, lng}}, place_id} = autocomplete.getPlace();
+            // console.log(name);
+            // console.log(lat());
+            // console.log(lng());
+            // console.log(place_id);
+            document.getElementById('place-name').value = name;
+            document.getElementById('place-lat').value = lat();
+            document.getElementById('place-lng').value = lng();
+            document.getElementById('place-id').value = place_id;
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwLe3LDaGo63wwRAez4rXyUZMNi7L1qco&libraries=places&callback=initSearch"></script>
+
 </body>
 </html>

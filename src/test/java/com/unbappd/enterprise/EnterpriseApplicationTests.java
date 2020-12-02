@@ -29,7 +29,7 @@ class EnterpriseApplicationTests {
 
         Review reviewEntry = new Review();
         reviewEntry.setId(0);
-        reviewEntry.setPlaceId(0);
+        reviewEntry.setPlaceId("0");
         reviewEntry.setScore(5);
         reviewEntry.setLat(51.1232);
         reviewEntry.setLng(51.1232);
@@ -48,9 +48,9 @@ class EnterpriseApplicationTests {
     }
     private void thenReturnReviewsWithPlaceID9(){
         String returnedReviewText = review.getText();
-        int checkPlacesID = review.getPlaceId();
+        String checkPlacesID = review.getPlaceId();
         assertEquals("A fabulous beer", returnedReviewText);
-        assertEquals(9,checkPlacesID);
+        assertEquals("9",checkPlacesID);
     }
 
     @Test

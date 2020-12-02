@@ -1,10 +1,16 @@
-function myMap() {
-    var mapProp= {
-        center:new google.maps.LatLng(39.103119, -84.512016),
-        zoom:10,
-        mapTypeId: "roadmap",
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+function initSearch() {
+    // Create the search box and link it to the UI element.
+    const input = document.getElementById("place-input");
+    console.log('INPUT', input);
+    const autocomplete = new google.maps.places.Autocomplete(input,
+        {
+            componentRestrictions: { country: 'US' },
+            types: ['establishment', 'geocode']  // 'establishment' / 'address' / 'geocode'
+        });
+    google.maps.event.addListener(autocomplete, 'place_changed', () => {
+        const place = autocomplete.getPlace();
+        console.log(place);
+    });
 }
 // // Create the search box and link it to the UI element.
 // const input = document.getElementById("pac-input");
