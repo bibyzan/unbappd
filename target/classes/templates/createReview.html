@@ -21,9 +21,14 @@
 </div>
 <form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
     <input id="place-input" type="text" placeholder="Search for places">
-    <div class="form-group">
+    <div class="form-group" style="display: none">
         <label for="placeId">placeId</label><input id="place-id" class="form-control" type="text" name="placeId"
                                                    th:field="*{placeId}"/>
+    </div>
+    <div class="form-group">
+        <label>Establishment Name</label><input disabled="true" id="place-name" class="form-control" type="text" name="placeName"
+                                                th:field="*{placeName}"/>
+
     </div>
     <div class="form-group">
         <label>Product Name</label><input class="form-control" type="text" name="productName"
@@ -37,11 +42,11 @@
         <label>Score</label><input class="form-control" type="text" name="score" th:field="*{score}"/>
 
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display: none">
         <label>Longitude</label><input id="place-lng" class="form-control" type="text" name="longitude" th:field="*{lng}"/>
 
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display: none">
         <label>Latitude</label><input id="place-lat" class="form-control" type="text" name="latitude" th:field="*{lat}"/>
 
     </div>
@@ -50,11 +55,7 @@
                                            th:field="*{reviewerName}"/>
 
     </div>
-    <div class="form-group">
-        <label>Establishment Name</label><input id="place-name" class="form-control" type="text" name="placeName"
-                                           th:field="*{placeName}"/>
 
-    </div>
     <div class="form-group">
         <button class="form-control" name="submit" type="submit" value="0">Submit</button>
 
@@ -73,10 +74,10 @@
             });
         google.maps.event.addListener(autocomplete, 'place_changed', () => {
             const {name, geometry: {location: {lat, lng}}, place_id} = autocomplete.getPlace();
-            console.log(name);
-            console.log(lat());
-            console.log(lng());
-            console.log(place_id);
+            // console.log(name);
+            // console.log(lat());
+            // console.log(lng());
+            // console.log(place_id);
             document.getElementById('place-name').value = name;
             document.getElementById('place-lat').value = lat();
             document.getElementById('place-lng').value = lng();
