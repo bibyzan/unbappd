@@ -25,10 +25,13 @@
         <label for="placeId">placeId</label><input id="place-id" class="form-control" type="text" name="placeId"
                                                    th:field="*{placeId}"/>
     </div>
-    <div class="form-group">
-        <label>Establishment Name</label><input disabled="true" id="place-name" class="form-control" type="text" name="placeName"
+    <div class="form-group" style="display: none">
+        <label>Establishment Name</label><input id="place-name" class="form-control" type="text" name="placeName"
                                                 th:field="*{placeName}"/>
 
+    </div>
+    <div class="form-group">
+        <label>Establishment Name</label><input disabled id="place-name-holder" class="form-control" type="text" name="placeNameHolder"/>
     </div>
     <div class="form-group">
         <label>Product Name</label><input class="form-control" type="text" name="productName"
@@ -38,8 +41,8 @@
         <label>Description</label><input class="form-control" type="text" name="text" th:field="*{text}"/>
 
     </div>
-    <div class="form-group">
-        <label>Score</label><input class="form-control" type="text" name="score" th:field="*{score}"/>
+    <div class="form-group" style="display: none">
+        <label>Score</label><input id="score-input" class="form-control" type="text" name="score" th:field="*{score}"/>
 
     </div>
     <div class="form-group" style="display: none">
@@ -53,14 +56,36 @@
     <div class="form-group">
         <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName"
                                            th:field="*{reviewerName}"/>
-
     </div>
-
+    <script>
+        function ratingChanged(val) {
+            document.getElementById('score-input').value = val;
+        }
+    </script>
+    <div class="form-check form-check-inline">
+        <input onclick="ratingChanged(1)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input onclick="ratingChanged(2)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input onclick="ratingChanged(3)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <label class="form-check-label" for="inlineRadio3">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input onclick="ratingChanged(4)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+        <label class="form-check-label" for="inlineRadio4">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input onclick="ratingChanged(5)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+        <label class="form-check-label" for="inlineRadio5">5</label>
+    </div>
     <div class="form-group">
         <button class="form-control" name="submit" type="submit" value="0">Submit</button>
 
     </div>
-
 </form>
 <script>
     function initSearch() {
@@ -79,6 +104,7 @@
             // console.log(lng());
             // console.log(place_id);
             document.getElementById('place-name').value = name;
+            document.getElementById('place-name-holder').value = name;
             document.getElementById('place-lat').value = lat();
             document.getElementById('place-lng').value = lng();
             document.getElementById('place-id').value = place_id;
