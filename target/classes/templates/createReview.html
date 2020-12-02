@@ -57,6 +57,10 @@
         <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName"
                                            th:field="*{reviewerName}"/>
     </div>
+<!--    <div class="form-group" style="display: none">-->
+<!--        <label>Reviewer Name</label><input id="place-pic" class="form-control" type="text" name="placePic"-->
+<!--                                           th:field="*{placePic}"/>-->
+<!--    </div>-->
     <script>
         function ratingChanged(val) {
             document.getElementById('score-input').value = val;
@@ -98,11 +102,17 @@
                 types: ['establishment']  // 'establishment' / 'address' / 'geocode'
             });
         google.maps.event.addListener(autocomplete, 'place_changed', () => {
-            const {name, geometry: {location: {lat, lng}}, place_id} = autocomplete.getPlace();
+            const {name, geometry: {location: {lat, lng}}, place_id, photos} = autocomplete.getPlace();
             // console.log(name);
             // console.log(lat());
             // console.log(lng());
             // console.log(place_id);
+            console.log(autocomplete.getPlace());
+            console.log(photos.length);
+            const {getUrl} = photos[parseInt((photos.length * Math.random()).toString())];
+
+            console.log(getUrl());
+            //document.getElementById('place-pic').value = getUrl();
             document.getElementById('place-name').value = name;
             document.getElementById('place-name-holder').value = name;
             document.getElementById('place-lat').value = lat();

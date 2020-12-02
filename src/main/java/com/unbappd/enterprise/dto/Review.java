@@ -14,6 +14,7 @@ class Review {
     private Integer id;
     private String placeId;
     private String placeName;
+//    private String placePic;
     private String productName;
     private String text;
     private int score;

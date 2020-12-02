@@ -22,88 +22,20 @@
 
 </div>
 <div class="container-fluid">
-    <div class="list-group" th:each="review : ${reviewList}">
-        <a th:href="@{'/specimensByPlant/' + ${review.id} + '/'}" class="list-group-item list-group-item-action">
-            <p th:text="${review.text}"/>
-        </a>
-    </div>
-
-    <div class="row">
-        <!--    <div th:replace="fragments/topnav :: search-navbar"></div>-->
-        <div class="row" style="background-color: gray; flex: 1; left: 0">
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Create Review</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" style="height: 500px; overflow-y: scroll">
-                            <form class="form-inline my-2 my-lg-0">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                            <br/>
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Enter Product Name</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                           aria-describedby="emailHelp">
-                                    <small id="emailHelp" class="form-text text-muted">However the beverage is listed on
-                                        the menu</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Enter Your Opinion</label>
-                                    <input type="text" class="form-control" id="exampleInputDesc"
-                                           aria-describedby="emailHelp">
-                                    <small id="desc" class="form-text text-muted">Your unfiltered response to the
-                                        drink</small>
-                                </div>
-                                <label>Rate your experience from 1 to 5 stars</label>
-                                <div class="form-group">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">1</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">2</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                               id="inlineRadio3" value="option3">
-                                        <label class="form-check-label" for="inlineRadio3">3</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                               id="inlineRadio4" value="option4">
-                                        <label class="form-check-label" for="inlineRadio4">4</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                               id="inlineRadio5" value="option5">
-                                        <label class="form-check-label" for="inlineRadio5">5</label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
+    <div style="display: flex; flex-wrap: wrap" >
+        <div class="list-group" th:each="review : ${reviewList}">
+            <!--        <a th:href="@{'/specimensByPlant/' + ${review.id} + '/'}" class="list-group-item list-group-item-action">-->
+            <!--            <p th:text="${review.text}"/>-->
+            <!--        </a>-->
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 th:text="${review.productName}" class="card-title"/>
+                    <p th:text="${review.text}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between" class="card-body">
+                    <a href="#" class="btn btn-primary">Cheers!</a>
+                    <a th:href="@{'/reviewDetails?id=' + ${review.id}}" class="card-link">More</a>
                 </div>
             </div>
         </div>

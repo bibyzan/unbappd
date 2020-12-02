@@ -25,10 +25,7 @@ public class ReviewService implements IReviewService {
 
     @Override
     public Review fetchById(int placeID) {
-        Review review = new Review();
-        review.setText("A fabulous beer");
-        review.setPlaceId("9");
-        return review;
+        return reviewDAO.fetchById(placeID);
     }
 
     @Override
