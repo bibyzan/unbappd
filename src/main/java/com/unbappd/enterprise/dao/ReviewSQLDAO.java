@@ -20,6 +20,13 @@ public class ReviewSQLDAO implements IReviewDAO {
     }
 
     @Override
+    public void cheers(int reviewId) {
+        Review review = this.fetchById(reviewId);
+        review.setCheers(review.getCheers() + 1);
+        this.reviewRepository.save(review);
+    }
+
+    @Override
     public Review fetchById(int placeID) {
         return this.reviewRepository.findById(placeID).get();
     }

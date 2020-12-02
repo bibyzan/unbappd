@@ -33,4 +33,9 @@ public class ReviewService implements IReviewService {
         return reviewDAO.fetchAll();
     }
 
+    @Override
+    public void cheers(int reviewId) {
+        this.reviewDAO.cheers(reviewId);
+    }
+
 }

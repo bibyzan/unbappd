@@ -40,12 +40,15 @@ public class EnterpriseApplicationController {
     }
 
     @RequestMapping("/saveReview")
-    public String saveReview(Review review) {
+    public String saveReview(Review review, Model model) {
         try {
             this.reviewService.save(review);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        List<Review> reviews = this.reviewService.fetchAll();
+        System.out.println(reviews);
+        model.addAttribute(reviews);
         return "index";
     }
 
@@ -53,6 +56,15 @@ public class EnterpriseApplicationController {
     @ResponseBody
     public List<Review> fetchAllReviews() {
         return this.reviewService.fetchAll();
+    }
+
+    @RequestMapping("/cheers")
+    public String cheers(@RequestParam(value="id") String id, Model model) {
+        this.reviewService.cheers(Integer.parseInt(id));
+        List<Review> reviews = this.reviewService.fetchAll();
+        System.out.println(reviews);
+        model.addAttribute(reviews);
+        return "index";
     }
 
     @RequestMapping("/reviewDetails")

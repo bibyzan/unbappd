@@ -22,8 +22,8 @@
 
 </div>
 <div class="container-fluid">
-    <div style="display: flex; flex-wrap: wrap" >
-        <div class="list-group" th:each="review : ${reviewList}">
+    <div  style="display: flex; flex-wrap: wrap" >
+        <div style="padding: 20px" class="list-group" th:each="review : ${reviewList}">
             <!--        <a th:href="@{'/specimensByPlant/' + ${review.id} + '/'}" class="list-group-item list-group-item-action">-->
             <!--            <p th:text="${review.text}"/>-->
             <!--        </a>-->
@@ -34,7 +34,7 @@
                     <p th:text="${review.text}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between" class="card-body">
-                    <a href="#" class="btn btn-primary">Cheers!</a>
+                    <a th:href="@{'/cheers?id=' + ${review.id}}" class="btn btn-primary">Cheers! (<span th:text="${review.cheers}"/>)</a>
                     <a th:href="@{'/reviewDetails?id=' + ${review.id}}" class="card-link">More</a>
                 </div>
             </div>

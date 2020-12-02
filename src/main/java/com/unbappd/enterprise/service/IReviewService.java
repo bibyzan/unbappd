@@ -24,4 +24,6 @@ public interface IReviewService {
     Review fetchById(int placeID);
 
     List<Review> fetchAll();
+
+    void cheers(int reviewId);
 }

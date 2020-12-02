@@ -18,6 +18,7 @@ class Review {
     private String productName;
     private String text;
     private int score;
+    private int cheers;
     private double lng;
     private double lat;
     private String reviewerName;

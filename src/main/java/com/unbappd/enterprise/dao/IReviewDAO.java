@@ -11,6 +11,8 @@ public interface IReviewDAO {
      */
     Review save(Review review) throws Exception;
 
+    void cheers(int reviewId);
+
     /**
      * Return all review given a place.
      * @return a collection of reviews given a location.
