@@ -15,10 +15,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
             async defer></script>
-
-    <script src="https://maps.googleapis.com/js?v=3exp&sensor=false&libraries=places">
-
-    </script>
 </head>
 <body>
 
@@ -49,21 +45,20 @@
                         </div>
                         <div class="modal-body" style="height: 500px; overflow-y: scroll">
                             <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" id="pac-input" type="search" placeholder="Search"
+                                <input class="form-control mr-sm-2" id="place-input" type="search" placeholder="Search for places"
                                        aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
                             <br/>
                                 <script>
-
-
-                                    // Create the search box and link it to the UI element.
-                                    const input = document.getElementById("pac-input");
-                                    const autocomplete = new google.maps.places.Autocomplete(input, options)
-
-                                    input.addListener("places_changed", () => {
-                                        const places =autocomplete.getPlaces();
-                                    });
+                                    function initSearch () {
+                                        // Create the search box and link it to the UI element.
+                                        const input = document.getElementById("place-input");
+                                        const autocomplete = new google.maps.places.Autocomplete(input)
+                                        input.addEventListener("places_changed", () => {
+                                            const places = autocomplete.getPlaces();
+                                        });
+                                    }
                                 </script>
 
                             <form>
@@ -122,6 +117,6 @@
         </div>
     </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwLe3LDaGo63wwRAez4rXyUZMNi7L1qco&libraries=places&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwLe3LDaGo63wwRAez4rXyUZMNi7L1qco&libraries=places&callback=initSearch"></script>
 </body>
 </html>
