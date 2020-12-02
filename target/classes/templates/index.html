@@ -16,9 +16,10 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
             async defer></script>
 
-    <script src="https://maps.googleapis.com/js?v=3exp&sensor=false&libraries=places">
+<!--    <script src="https://maps.googleapis.com/js?v=3exp&sensor=false&libraries=places">-->
 
-    </script>
+<!--    </script>-->
+
 </head>
 <body>
 
@@ -26,7 +27,11 @@
 
 </div>
 <div class="container-fluid">
-
+    <div class="list-group" th:each="review : ${reviewList}">
+        <a th:href="@{'/specimensByPlant/' + ${review.id} + '/'}" class="list-group-item list-group-item-action">
+            <p th:text="${review.text}"/>
+        </a>
+    </div>
     <div class="row">
         <!--    <div th:replace="fragments/topnav :: search-navbar"></div>-->
         <div class="row" style="background-color: gray; flex: 1; left: 0">
@@ -48,11 +53,8 @@
                             </button>
                         </div>
                         <div class="modal-body" style="height: 500px; overflow-y: scroll">
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" id="autocomplete" type="search" placeholder="Search"
-                                       aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
+                            <input class="form-control mr-sm-2" id="autocomplete" type="search" placeholder="Search"
+                                   aria-label="Search">
                             <script>
                                 let placeSearch;
                                 let autocomplete;

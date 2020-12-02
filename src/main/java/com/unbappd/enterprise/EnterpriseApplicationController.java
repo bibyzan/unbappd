@@ -23,8 +23,9 @@ public class EnterpriseApplicationController {
      */
     @RequestMapping("/")
     public String index(Model model) {
-        Review review = new Review();
-        model.addAttribute(review);
+        List<Review> reviews = this.reviewService.fetchAll();
+        System.out.println(reviews);
+        model.addAttribute(reviews);
         return "index";
     }
 
