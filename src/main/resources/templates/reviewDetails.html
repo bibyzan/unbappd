@@ -22,9 +22,9 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 th:text="${review.productName}" class="display-2"/>
-        <h2 th:text="${review.reviewerName}" class="display-4"/>
+        Taken by <h2 th:text="${review.reviewerName}" class="display-4"/>
         <p th:text="${review.text}" class="lead"/>
-        Taken at <p th:text="${review.placeName}" class="lead"/>
+        At <p th:text="${review.placeName}" class="lead"/>
     </div>
 </div>
 </body>

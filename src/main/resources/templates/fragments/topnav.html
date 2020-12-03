@@ -3,8 +3,26 @@
         <h2 style="margin-right: 10px">Unbappd</h2>
     </a>
     <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" id="main-input" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input id="global-nav-input" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
     </form>
     <a style="position: absolute; right: 10px" href="/createReview" class="btn btn-primary">Create Review</a>
+    <script>
+        function initHeader() {
+            // Create the search box and link it to the UI element.
+            const input = document.getElementById("global-nav-input");
+            console.log('INPUT', input);
+            const autocomplete = new google.maps.places.Autocomplete(input,
+                {
+                    componentRestrictions: {country: 'US'},
+                    types: ['establishment']  // 'establishment' / 'address' / 'geocode'
+                });
+            google.maps.event.addListener(autocomplete, 'place_changed', () => {
+                const {place_id} = autocomplete.getPlace();
+
+                console.log(place_id);
+                window.location.assign(`http://localhost:8080?searchTerm=${place_id}`);
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwLe3LDaGo63wwRAez4rXyUZMNi7L1qco&libraries=places&callback=initHeader"></script>
 </nav>

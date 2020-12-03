@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,8 +22,15 @@ public class EnterpriseApplicationController {
      * @return
      */
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index(@RequestParam(value="searchTerm", required=false, defaultValue="None")  String searchTerm, Model model) {
         List<Review> reviews = this.reviewService.fetchAll();
+        if (!searchTerm.equals("None")) {
+            List<Review> filteredReviews = new ArrayList<>();
+            for (Review review: reviews)
+                if (review.getPlaceId().equals(searchTerm))
+                    filteredReviews.add(review);
+            reviews = filteredReviews;
+        }
         System.out.println(reviews);
         model.addAttribute(reviews);
         return "index";
