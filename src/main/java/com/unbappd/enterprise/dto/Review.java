@@ -14,6 +14,7 @@ class Review {
     private Integer id;
     private String placeId;
     private String placeName;
+    private String picExt;
 //    private String placePic;
     private String productName;
     private String text;

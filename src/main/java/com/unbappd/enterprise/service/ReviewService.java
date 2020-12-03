@@ -42,13 +42,14 @@ public class ReviewService implements IReviewService {
         this.reviewDAO.cheers(reviewId);
     }
     @Override
-    public void saveImage(MultipartFile imageFile) throws IOException {
+    public void saveImage(MultipartFile imageFile, String id) throws IOException {
         Path currentPath = Paths.get(".");
         Path absolutePath = currentPath.toAbsolutePath();
         String folder = absolutePath.toString().replaceAll(".","") + "src\\main\\resources\\static\\";
         System.out.println(folder);
         byte[] bytes = imageFile.getBytes();
-        Path path = Paths.get(folder + imageFile.getOriginalFilename());
+        String reg = "image\\";
+        Path path = Paths.get(folder + id + "." + imageFile.getContentType().substring(6, imageFile.getContentType().length()));
         Files.write(path, bytes);
     }
 

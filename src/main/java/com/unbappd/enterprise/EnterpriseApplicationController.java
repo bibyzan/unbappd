@@ -52,32 +52,19 @@ public class EnterpriseApplicationController {
     @RequestMapping("/saveReview")
     public String saveReview(Review review, @RequestParam("imageFile") MultipartFile imageFile, Model model) {
         try {
+            review.setPicExt(imageFile.getContentType().substring(6, imageFile.getContentType().length()));
             this.reviewService.save(review);
-            this.reviewService.saveImage(imageFile);
+            this.reviewService.saveImage(imageFile, review.getId().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
+        EnterpriseApplication.restart();
         List<Review> reviews = this.reviewService.fetchAll();
         System.out.println(reviews);
         model.addAttribute(reviews);
         return "index";
     }
-    @PostMapping("/uploadImage")
-    public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile, Model model) {
-        String returnValue = "start";
-        try {
-            reviewService.saveImage(imageFile);
-            Review review = new Review();
-            model.addAttribute("img", review);
-            returnValue = "image";
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            returnValue = "error";
-        }
-        System.out.println(returnValue);
-        return "string";
-    }
+
     @GetMapping("/reviews")
     @ResponseBody
     public List<Review> fetchAllReviews() {

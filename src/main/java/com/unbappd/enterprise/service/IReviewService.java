@@ -28,5 +28,5 @@ public interface IReviewService {
     List<Review> fetchAll();
 
     void cheers(int reviewId);
-    void saveImage(MultipartFile imageFile) throws IOException;
+    void saveImage(MultipartFile imageFile, String id) throws IOException;
 }
