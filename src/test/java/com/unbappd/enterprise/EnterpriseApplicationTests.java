@@ -1,10 +1,12 @@
 package com.unbappd.enterprise;
 
+import com.unbappd.enterprise.dao.IReviewDAO;
 import com.unbappd.enterprise.dto.Review;
 import com.unbappd.enterprise.service.IReviewService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,6 +16,9 @@ class EnterpriseApplicationTests {
     @Autowired
     IReviewService reviewService;
     private Review review;
+
+    @MockBean
+    private IReviewDAO reviewDAO;
 
     @Test
     void contextLoads() {
@@ -41,9 +46,25 @@ class EnterpriseApplicationTests {
     }
 
     private void givenReviewDataAreAvailable() {
+        String reviewTxt = "Really Good Beer";
+        Integer reviewScr = 5;
+
+        Review reviewEntry = new Review();
+        reviewEntry.setId(9);
+        reviewEntry.setPlaceId("9");
+        reviewEntry.setScore(9);
+        reviewEntry.setLat(51.1232);
+        reviewEntry.setLng(51.1232);
+        reviewEntry.setText(reviewTxt);
+        reviewEntry.setReviewerName("101");
+        try {
+            reviewDAO.save(review);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     private void whenUserSearchesWithPlaceID9(){
-        review = reviewService.fetchById(9);
+        review = reviewDAO.fetchById(9);
 
     }
     private void thenReturnReviewsWithPlaceID9(){
