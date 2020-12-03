@@ -1,7 +1,9 @@
 package com.unbappd.enterprise.service;
 
 import com.unbappd.enterprise.dto.Review;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -26,4 +28,5 @@ public interface IReviewService {
     List<Review> fetchAll();
 
     void cheers(int reviewId);
+    void saveImage(MultipartFile imageFile) throws IOException;
 }
