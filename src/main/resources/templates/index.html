@@ -28,10 +28,13 @@
             <!--            <p th:text="${review.text}"/>-->
             <!--        </a>-->
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1077px-Star_icon_stylized.svg.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 th:text="${review.productName}" class="card-title"/>
-                    <p th:text="${review.text}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<!--                    <p th:text="${review.text}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                </div>
+                <div style="padding-left: 20px; padding-right: 20px;">
+                    <img width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1077px-Star_icon_stylized.svg.png" th:each="num : ${#numbers.sequence( 1, __${review.score}__)}"/>
                 </div>
                 <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between" class="card-body">
                     <a th:href="@{'/cheers?id=' + ${review.id}}" class="btn btn-primary">Cheers! (<span th:text="${review.cheers}"/>)</a>

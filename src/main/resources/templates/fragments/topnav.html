@@ -1,7 +1,10 @@
 <nav th:fragment="top-navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-    <h2 style="margin-right: 10px">Unbappd</h2>
+    <a href="/">
+        <h2 style="margin-right: 10px">Unbappd</h2>
+    </a>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" id="main-input" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <a style="position: absolute; right: 10px" href="/createReview" class="btn btn-primary">Create Review</a>
 </nav>

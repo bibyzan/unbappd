@@ -19,78 +19,87 @@
 <div th:replace="fragments/topnav :: top-navbar">
 
 </div>
-<form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
-    <input id="place-input" type="text" placeholder="Search for places">
-    <div class="form-group" style="display: none">
-        <label for="placeId">placeId</label><input id="place-id" class="form-control" type="text" name="placeId"
-                                                   th:field="*{placeId}"/>
-    </div>
-    <div class="form-group" style="display: none">
-        <label>Establishment Name</label><input id="place-name" class="form-control" type="text" name="placeName"
-                                                th:field="*{placeName}"/>
+<div style="width: 100%; padding-left: 10%; padding-right: 10%; padding-top: 5%">
+    <form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
+        <h2>Create a new review!</h2>
+        <div class="form-group">
+            <input class="form-control" id="place-input" type="text" placeholder="Search for places">
 
-    </div>
-    <div class="form-group">
-        <label>Establishment Name</label><input disabled id="place-name-holder" class="form-control" type="text" name="placeNameHolder"/>
-    </div>
-    <div class="form-group">
-        <label>Product Name</label><input class="form-control" type="text" name="productName"
-                                          th:field="*{productName}"/>
-    </div>
-    <div class="form-group">
-        <label>Description</label><input class="form-control" type="text" name="text" th:field="*{text}"/>
+        </div>
+        <div class="form-group" style="display: none">
+            <label for="placeId">placeId</label><input id="place-id" class="form-control" type="text" name="placeId"
+                                                       th:field="*{placeId}"/>
+        </div>
+        <div class="form-group" style="display: none">
+            <label>Establishment Name</label><input id="place-name" class="form-control" type="text" name="placeName"
+                                                    th:field="*{placeName}"/>
 
-    </div>
-    <div class="form-group" style="display: none">
-        <label>Score</label><input id="score-input" class="form-control" type="text" name="score" th:field="*{score}"/>
+        </div>
+        <div class="form-group">
+            <label>Establishment Name</label><input disabled id="place-name-holder" class="form-control" type="text" name="placeNameHolder"/>
+        </div>
+        <div class="form-group">
+            <label>Product Name</label><input class="form-control" type="text" name="productName"
+                                              th:field="*{productName}"/>
+        </div>
+        <div class="form-group">
+            <label>Description</label><input class="form-control" type="text" name="text" th:field="*{text}"/>
 
-    </div>
-    <div class="form-group" style="display: none">
-        <label>Longitude</label><input id="place-lng" class="form-control" type="text" name="longitude" th:field="*{lng}"/>
+        </div>
+        <div class="form-group" style="display: none">
+            <label>Score</label><input id="score-input" class="form-control" type="text" name="score" th:field="*{score}"/>
 
-    </div>
-    <div class="form-group" style="display: none">
-        <label>Latitude</label><input id="place-lat" class="form-control" type="text" name="latitude" th:field="*{lat}"/>
+        </div>
+        <div class="form-group" style="display: none">
+            <label>Longitude</label><input id="place-lng" class="form-control" type="text" name="longitude" th:field="*{lng}"/>
 
-    </div>
-    <div class="form-group">
-        <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName"
-                                           th:field="*{reviewerName}"/>
-    </div>
-<!--    <div class="form-group" style="display: none">-->
-<!--        <label>Reviewer Name</label><input id="place-pic" class="form-control" type="text" name="placePic"-->
-<!--                                           th:field="*{placePic}"/>-->
-<!--    </div>-->
-    <script>
-        function ratingChanged(val) {
-            document.getElementById('score-input').value = val;
-        }
-    </script>
-    <div class="form-check form-check-inline">
-        <input onclick="ratingChanged(1)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">1</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input onclick="ratingChanged(2)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <label class="form-check-label" for="inlineRadio2">2</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input onclick="ratingChanged(3)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-        <label class="form-check-label" for="inlineRadio3">3</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input onclick="ratingChanged(4)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-        <label class="form-check-label" for="inlineRadio4">4</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input onclick="ratingChanged(5)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-        <label class="form-check-label" for="inlineRadio5">5</label>
-    </div>
-    <div class="form-group">
-        <button class="form-control" name="submit" type="submit" value="0">Submit</button>
+        </div>
+        <div class="form-group" style="display: none">
+            <label>Latitude</label><input id="place-lat" class="form-control" type="text" name="latitude" th:field="*{lat}"/>
 
-    </div>
-</form>
+        </div>
+        <div class="form-group">
+            <label>Reviewer Name</label><input class="form-control" type="text" name="reviewerName"
+                                               th:field="*{reviewerName}"/>
+        </div>
+        <!--    <div class="form-group" style="display: none">-->
+        <!--        <label>Reviewer Name</label><input id="place-pic" class="form-control" type="text" name="placePic"-->
+        <!--                                           th:field="*{placePic}"/>-->
+        <!--    </div>-->
+        <script>
+            function ratingChanged(val) {
+                document.getElementById('score-input').value = val;
+            }
+        </script>
+        <div class="form-group">
+            <label>Enter your rating in stars from 1 to 5</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input onclick="ratingChanged(1)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input onclick="ratingChanged(2)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input onclick="ratingChanged(3)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input onclick="ratingChanged(4)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input onclick="ratingChanged(5)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        <div class="form-group">
+            <button class="form-control" name="submit" type="submit" value="0">Submit</button>
+
+        </div>
+    </form>
+</div>
 <script>
     function initSearch() {
         // Create the search box and link it to the UI element.
