@@ -5,7 +5,12 @@ import com.unbappd.enterprise.dto.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -34,6 +39,17 @@ public class ReviewService implements IReviewService {
     @Override
     public List<Review> fetchAll() {
         return reviewDAO.fetchAll();
+    }
+
+    @Override
+    public void saveImage(MultipartFile imageFile) throws IOException {
+        Path currentPath = Paths.get(".");
+        Path absolutePath = currentPath.toAbsolutePath();
+        String folder = absolutePath.toString().replaceAll(".","") + "src\\main\\resources\\static\\";
+        System.out.println(folder);
+        byte[] bytes = imageFile.getBytes();
+        Path path = Paths.get(folder + imageFile.getOriginalFilename());
+        Files.write(path, bytes);
     }
 
 }

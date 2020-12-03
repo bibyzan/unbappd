@@ -19,7 +19,7 @@
 <div th:replace="fragments/topnav :: top-navbar">
 
 </div>
-<form action="#" th:action="@{/saveReview}" th:object="${review}" method="GET">
+<form action="#" enctype="multipart/form-data" th:action="@{/saveReview}" th:object="${review}" method="POST">
     <input id="place-input" type="text" placeholder="Search for places">
     <div class="form-group" style="display: none">
         <label for="placeId">placeId</label><input id="place-id" class="form-control" type="text" name="placeId"
@@ -83,9 +83,12 @@
         <label class="form-check-label" for="inlineRadio5">5</label>
     </div>
     <div class="form-group">
-        <button class="form-control" name="submit" type="submit" value="0">Submit</button>
-
+        <input type="file" name="imageFile"/>
     </div>
+    <div class="form-group">
+        <button class="form-control" name="submit" type="submit" value="0" th:action="@{/saveReview}">Submit</button>
+    </div>
+
 </form>
 <script>
     function initSearch() {
