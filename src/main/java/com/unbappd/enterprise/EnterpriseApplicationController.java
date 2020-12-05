@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -21,14 +22,15 @@ public class EnterpriseApplicationController {
 
     /**
      * Handle the root of / endpoint and return index.html
+     *
      * @return
      */
     @RequestMapping("/")
-    public String index(@RequestParam(value="searchTerm", required=false, defaultValue="None")  String searchTerm, Model model) {
+    public String index(@RequestParam(value = "searchTerm", required = false, defaultValue = "None") String searchTerm, Model model) {
         List<Review> reviews = this.reviewService.fetchAll();
         if (!searchTerm.equals("None")) {
             List<Review> filteredReviews = new ArrayList<>();
-            for (Review review: reviews)
+            for (Review review : reviews)
                 if (review.getPlaceId().equals(searchTerm))
                     filteredReviews.add(review);
             reviews = filteredReviews;
@@ -40,6 +42,7 @@ public class EnterpriseApplicationController {
 
     /**
      * Handle the root of / endpoint and return index.html
+     *
      * @return
      */
     @RequestMapping("/createReview")
@@ -58,7 +61,7 @@ public class EnterpriseApplicationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        EnterpriseApplication.restart();
+        // EnterpriseApplication.restart();
         List<Review> reviews = this.reviewService.fetchAll();
         System.out.println(reviews);
         model.addAttribute(reviews);
@@ -71,8 +74,9 @@ public class EnterpriseApplicationController {
         return this.reviewService.fetchAll();
     }
 
+
     @RequestMapping("/cheers")
-    public String cheers(@RequestParam(value="id") String id, Model model) {
+    public String cheers(@RequestParam(value = "id") String id, Model model) {
         this.reviewService.cheers(Integer.parseInt(id));
         List<Review> reviews = this.reviewService.fetchAll();
         System.out.println(reviews);
@@ -81,11 +85,11 @@ public class EnterpriseApplicationController {
     }
 
     @RequestMapping("/reviewDetails")
-    public String reviewDetails(@RequestParam(value="id") String id, Model model) {
+    public String reviewDetails(@RequestParam(value = "id") String id, Model model) {
         System.out.println(id);
         Review review = this.reviewService.fetchById(Integer.parseInt(id));
         model.addAttribute(review);
         System.out.println(review);
-        return  "reviewDetails";
+        return "reviewDetails";
     }
 }
